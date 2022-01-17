@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .main {
+    background: rgb(42, 63, 164);
+    background: linear-gradient(
+      0deg,
+      rgba(42, 63, 164, 1) 9%,
+      rgba(17, 7, 34, 1) 85%
+    );
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    --heightGround: calc(15%);
+  }
+  .score {
+    position: absolute;
+    font-size: 5vmin;
+    right: 2vmin;
+    top: 2vmin;
+    color: white;
+  }
+  .title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 4vmin;
+    top: 50%;
+    left: 50%;
+    color: white;
+    //物件本身大小
+    transform: translate(-50%, -50%);
+    letter-spacing: 10px;
+  }
+  .hide {
+    display: none;
+  }
+  .ground {
+    --left: 0;
+    width: 300%;
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--left) * 1%);
+    height: calc(var(--heightGround));
+    filter: brightness(70%);
+    opacity: 0.8;
+  }
+  .ground2 {
+    --left: 0;
+    width: 300%;
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--left) * 1%);
+    height: calc(var(--heightGround));
+    filter: brightness(70%);
+  }
+  .ghost {
+    --bottom: 0; //讓主角可以跳(上移)
+    position: absolute;
+    left: 1%;
+    height: 20%;
+    bottom: calc(var(--bottom) * 1% + var(--heightGround));
+  }
+  .sun {
+    --left: 0;
+    position: absolute;
+    left: calc(var(--left) * 1%);
+    bottom: var(--heightGround);
+    height: 15%;
+  }
+  .live {
+    margin-left: 2vw;
+    margin-top: 2vw;
+    position: relative;
+    color: red;
+    font-size: 2vw;
+  }
+  .lose {
+    color: gray;
+  }
+}
